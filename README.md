@@ -1,5 +1,5 @@
 # A fully microservices-based MEAN application
-This application shows how to consume NodeJS microservices located in different locations and/or databases. The system performs actions like:
+This application shows how to consume NodeJS microservices hosted in different locations and/or databases. The system performs actions like:
 
 - [x] User Creation 
 - [x] Password Encryption
