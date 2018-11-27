@@ -1,0 +1,39 @@
+<div *ngIf="isLoading">
+    <img class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    <span>&nbsp;&nbsp;Loading categories please wait...</span>
+</div>
+<div class="products" *ngIf="isLoading==false && products.length > 0 ">
+    <!-- Just doesn't work on IE -->
+    <!--
+    <table class="table table-light table-hover">
+        <tr class="row">
+            <th class="col-md-2">&nbsp;</th>
+            <th class="col-md-7 text-left">Product Name</th>
+            <th class="col-md-2 text-center">Price</th>
+        </tr>
+        <tr class="row" *ngFor="let product of products | product_filter : categories">
+            <td class="col-md-2">
+                <img class="card-img-top img-fluid" src="{{apiProductsUrl}}/{{product.productImageUrl}}" />
+            </td>
+            <td class="col-md-7 text-left">{{product.name}}</td>
+            <td class="col-md-2 text-right">{{product.price | currency:'USD' : number:'1.2-2'}}</td>
+        </tr>
+    </table>
+    <hr />
+    -->
+    <div class="row">
+        <div class="col-md-2">&nbsp;</div>
+        <div class="col-md-7 text-left"><strong>Product Name</strong></div>
+        <div class="col-md-2 text-center"><strong>Price</strong></div>
+    </div>    
+    <div class="row" *ngFor="let product of products | product_filter : categories">
+        <div class="col-md-2">
+            <img class="card-img-top img-fluid" src="{{apiProductsUrl}}/{{product.productImageUrl}}" />
+        </div>
+        <div class="col-md-7 text-left">{{product.name}}</div>
+        <div class="col-md-2 text-right">{{product.price | currency:'USD' : number:'1.2-2'}}</div>        
+    </div>
+</div>
+<div class="jumbotron" *ngIf="products.length===0 ">
+    <div class="alert alert-info text-center">There are no products, please <a href="/login">Login</a> and create some</div>
+</div>

@@ -1,0 +1,33 @@
+﻿<!-- nav -->
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="navbar-nav justify-content-end">
+        <a class="nav-item nav-link active" routerLink="/catalog">
+            <i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;Home
+        </a>
+    </div>    
+    <div class="ml-auto navbar-nav">
+        <a *ngIf="!currentUser" class="nav-item nav-link" routerLink="/login">
+            Login&nbsp;&nbsp;<i class="fas fa-sign-in-alt" aria-hidden="true"></i>&nbsp;
+        </a>
+        <!-- User options -->
+        <span *ngIf="currentUser" class="nav-item nav-link btn btn-primary text-light">
+            Welcome back!&nbsp;&nbsp;{{currentUser.username}}&nbsp;&nbsp;
+        </span>
+        <a *ngIf="currentUser" class="nav-item nav-link" routerLink="/category-add">Add Category</a>
+        <a *ngIf="currentUser" class="nav-item nav-link" routerLink="/product-add">Add Product</a>
+        <a *ngIf="currentUser" class="nav-item nav-link" (click)="logout()">
+            <i class="fas fa-sign-out-alt" aria-hidden="true"></i>&nbsp;Logout
+        </a>
+    </div>
+</nav>
+
+<!-- main app container -->
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <alert></alert>
+        </div>
+    </div>    
+    <router-outlet></router-outlet>
+</div>

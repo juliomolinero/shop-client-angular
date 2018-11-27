@@ -1,0 +1,19 @@
+/* HeroesComponent's private CSS styles */
+.list-item-selected {
+  background-color: #EEEEEE !important;
+  color: #040670 !important;
+}
+
+.list-pointer {
+  cursor: pointer;
+}
+
+.categories li {
+  color: #cec4c4;
+}
+
+.categories h5 {
+  font-family: Calibri;
+  font-size: large;
+  text-align: center;
+}

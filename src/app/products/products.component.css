@@ -1,0 +1,8 @@
+.products {
+    font-family: Calibri;
+    font-size: 12pt;
+}
+    .products .row {
+        border-bottom: solid 1px #dedede;
+        padding: 10px 0 10px 0;
+    }
